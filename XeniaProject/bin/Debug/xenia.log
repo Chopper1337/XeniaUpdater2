@@ -1,45 +1,89 @@
-i> 00003654 Build: master@5519dbb39 on Apr 27 2022
-i> 00003654 Storage root: C:\Users\User\Documents\Xenia
-i> 00003654 Loaded config: C:\Users\User\Documents\Xenia\xenia.config.toml
-i> 00003654 Content root: C:\Users\User\Documents\Xenia\content
-i> 00003654 Cache root: C:\Users\User\Documents\Xenia\cache
-i> 00001E28 winkey: "^A" binds key 0x41 to controller input DPAD_LEFT.
-i> 00001E28 winkey: "^D" binds key 0x44 to controller input DPAD_RIGHT.
-i> 00001E28 winkey: "^S" binds key 0x53 to controller input DPAD_DOWN.
-i> 00001E28 winkey: "^W" binds key 0x57 to controller input DPAD_UP.
-i> 00001E28 winkey: "_A" binds key 0x41 to controller input LEFT_THUMB_LEFT.
-i> 00001E28 winkey: "_D" binds key 0x44 to controller input LEFT_THUMB_RIGHT.
-i> 00001E28 winkey: "_S" binds key 0x53 to controller input LEFT_THUMB_DOWN.
-i> 00001E28 winkey: "_W" binds key 0x57 to controller input LEFT_THUMB_UP.
-i> 00001E28 winkey: "F" binds key 0x46 to controller input LEFT_THUMB_PRESSED.
-i> 00001E28 winkey: "0x26" binds key 0x26 to controller input RIGHT_THUMB_UP.
-i> 00001E28 winkey: "0x28" binds key 0x28 to controller input RIGHT_THUMB_DOWN.
-i> 00001E28 winkey: "0x27" binds key 0x27 to controller input RIGHT_THUMB_RIGHT.
-i> 00001E28 winkey: "0x25" binds key 0x25 to controller input RIGHT_THUMB_LEFT.
-i> 00001E28 winkey: "K" binds key 0x4B to controller input RIGHT_THUMB_PRESSED.
-i> 00001E28 winkey: "L" binds key 0x4C to controller input X.
-i> 00001E28 winkey: "0xDE" binds key 0xDE to controller input B.
-i> 00001E28 winkey: "0xBA" binds key 0xBA to controller input A.
-i> 00001E28 winkey: "P" binds key 0x50 to controller input Y.
-i> 00001E28 winkey: "Q" binds key 0x51 to controller input LEFT_TRIGGER.
-i> 00001E28 winkey: "I" binds key 0x49 to controller input LEFT_TRIGGER.
-i> 00001E28 winkey: "E" binds key 0x45 to controller input RIGHT_TRIGGER.
-i> 00001E28 winkey: "O" binds key 0x4F to controller input RIGHT_TRIGGER.
-i> 00001E28 winkey: "Z" binds key 0x5A to controller input BACK.
-i> 00001E28 winkey: "X" binds key 0x58 to controller input START.
-i> 00001E28 winkey: "1" binds key 0x31 to controller input LEFT_SHOULDER.
-i> 00001E28 winkey: "3" binds key 0x33 to controller input RIGHT_SHOULDER.
-w> 00003654 SDL GameControllerDB: file 'gamecontrollerdb.txt' does not exist.
-i> 00003654        Time, 
-i> 00003654     Average, 
-i> 00003654         Max, 
-i> 00003654         Min, 
-i> 00003654    Call Avg, 
-i> 00003654     Count, 
-i> 00003654        Excl, 
-i> 00003654    Avg Excl, 
-i> 00003654    Max Excl, 
-i> 00003654 apu
-i> 00003654 cpu
-i> 00003654 gpu
-i> 00003654 internal
+i> 000010E8 Build: master@5519dbb39 on Apr 27 2022
+i> 000010E8 Storage root: C:\Users\User\Documents\Xenia
+i> 000010E8 Loaded config: C:\Users\User\Documents\Xenia\xenia.config.toml
+i> 000010E8 Content root: C:\Users\User\Documents\Xenia\content
+i> 000010E8 Cache root: C:\Users\User\Documents\Xenia\cache
+i> 00007454 winkey: "^A" binds key 0x41 to controller input DPAD_LEFT.
+i> 00007454 winkey: "^D" binds key 0x44 to controller input DPAD_RIGHT.
+i> 00007454 winkey: "^S" binds key 0x53 to controller input DPAD_DOWN.
+i> 00007454 winkey: "^W" binds key 0x57 to controller input DPAD_UP.
+i> 00007454 winkey: "_A" binds key 0x41 to controller input LEFT_THUMB_LEFT.
+i> 00007454 winkey: "_D" binds key 0x44 to controller input LEFT_THUMB_RIGHT.
+i> 00007454 winkey: "_S" binds key 0x53 to controller input LEFT_THUMB_DOWN.
+i> 00007454 winkey: "_W" binds key 0x57 to controller input LEFT_THUMB_UP.
+i> 00007454 winkey: "F" binds key 0x46 to controller input LEFT_THUMB_PRESSED.
+i> 00007454 winkey: "0x26" binds key 0x26 to controller input RIGHT_THUMB_UP.
+i> 00007454 winkey: "0x28" binds key 0x28 to controller input RIGHT_THUMB_DOWN.
+i> 00007454 winkey: "0x27" binds key 0x27 to controller input RIGHT_THUMB_RIGHT.
+i> 00007454 winkey: "0x25" binds key 0x25 to controller input RIGHT_THUMB_LEFT.
+i> 00007454 winkey: "K" binds key 0x4B to controller input RIGHT_THUMB_PRESSED.
+i> 00007454 winkey: "L" binds key 0x4C to controller input X.
+i> 00007454 winkey: "0xDE" binds key 0xDE to controller input B.
+i> 00007454 winkey: "0xBA" binds key 0xBA to controller input A.
+i> 00007454 winkey: "P" binds key 0x50 to controller input Y.
+i> 00007454 winkey: "Q" binds key 0x51 to controller input LEFT_TRIGGER.
+i> 00007454 winkey: "I" binds key 0x49 to controller input LEFT_TRIGGER.
+i> 00007454 winkey: "E" binds key 0x45 to controller input RIGHT_TRIGGER.
+i> 00007454 winkey: "O" binds key 0x4F to controller input RIGHT_TRIGGER.
+i> 00007454 winkey: "Z" binds key 0x5A to controller input BACK.
+i> 00007454 winkey: "X" binds key 0x58 to controller input START.
+i> 00007454 winkey: "1" binds key 0x31 to controller input LEFT_SHOULDER.
+i> 00007454 winkey: "3" binds key 0x33 to controller input RIGHT_SHOULDER.
+w> 000010E8 SDL GameControllerDB: file 'gamecontrollerdb.txt' does not exist.
+i> 00007454 DXGI adapter: NVIDIA GeForce RTX 3060 Laptop GPU (vendor 0x10DE, device 0x2560)
+i> 00007454 Direct3D 12 device and OS features:
+* Max GPU virtual address bits per resource: 40
+* Non-zeroed heap creation: yes
+* Pixel-shader-specified stencil reference: no
+* Programmable sample positions: tier 2
+* Rasterizer-ordered views: yes
+* Resource binding: tier 3
+* Tiled resources: tier 3
+i> 00007454 Added handle:F8000004 for class xe::kernel::XObject
+i> 00007454 XThreadF8000004 (1) Stack: 70010000-70030000
+i> 00007454 Added handle:F8000008 for class xe::kernel::XObject
+K> F8000004 XThread::Execute thid 1 (handle=F8000004, 'GPU Commands (F8000004)', native=00003C40, <host>)
+i> 00007454 XThreadF8000008 (2) Stack: 70050000-70070000
+K> F8000008 XThread::Execute thid 2 (handle=F8000008, 'GPU VSync (F8000008)', native=00006C60, <host>)
+i> 00007454 Added handle:F800000C for class xe::kernel::XObject
+i> 00007454 XThreadF800000C (3) Stack: 70090000-700B0000
+i> 00007454 Added handle:F8000010 for class xe::kernel::XObject
+i> 00007454 XThreadF8000010 (4) Stack: 700D0000-700F0000
+K> F800000C XThread::Execute thid 3 (handle=F800000C, 'XMA Decoder (F800000C)', native=00006F48, <host>)
+i> 00007454 Added handle:F8000014 for class xe::kernel::XObject
+K> F8000010 XThread::Execute thid 4 (handle=F8000010, 'Audio Worker (F8000010)', native=000044C8, <host>)
+i> 00007454 Added handle:F8000018 for class xe::kernel::XObject
+i> 00007454 Added handle:F800001C for class xe::kernel::XObject
+i> 000010E8        Time, 
+i> 000010E8     Average, 
+i> 000010E8         Max, 
+i> 000010E8         Min, 
+i> 000010E8    Call Avg, 
+i> 000010E8     Count, 
+i> 000010E8        Excl, 
+i> 000010E8    Avg Excl, 
+i> 000010E8    Max Excl, 
+i> 000010E8 apu
+i> 000010E8 cpu
+i> 000010E8 gpu
+i> 000010E8      0.00ms, 
+i> 000010E8      0.00ms, 
+i> 000010E8     -0.00ms, 
+i> 000010E8      0.00ms, 
+i> 000010E8     -0.00ms, 
+i> 000010E8         0, 
+i> 000010E8      0.00ms, 
+i> 000010E8 1714715297330633017847864885248.00ms, 
+i> 000010E8      0.00ms, 
+i> 000010E8 xe::gpu::GraphicsSystem::MarkVblank
+i> 000010E8      0.00ms, 
+i> 000010E8      0.00ms, 
+i> 000010E8     13.81ms, 
+i> 000010E8      0.10ms, 
+i> 000010E8     13.81ms, 
+i> 000010E8         0, 
+i> 000010E8     -0.00ms, 
+i> 000010E8      0.00ms, 
+i> 000010E8      0.00ms, 
+i> 000010E8 xe::gpu::CommandProcessor::Stall
+i> 000010E8 internal
