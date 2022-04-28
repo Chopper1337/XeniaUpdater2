@@ -9,7 +9,7 @@ namespace XeniaProject
 {
     public class XeniaBuild
     {
-        public XeniaBuild(string Name, string URL, string Description, string FolderName, string ImagePath, Stability StabilityRating, string ExecutableName )
+        public XeniaBuild(string Name, string URL, string Description, string FolderName, string ImagePath, Stability StabilityRating, string ExecutableName, string ZipName )
         {
             this.Name = Name;
             this.URL = URL;
@@ -17,7 +17,8 @@ namespace XeniaProject
             this.FolderName = FolderName;
             this.ImagePath = ImagePath;
             this.StabilityRating = StabilityRating;
-            this.ExecutableZipName = ExecutableName;
+            this.ZipName = ZipName;
+            this.ExecutableName = ExecutableName;
         }
         public string Name { get; set; }
         public string URL { get; set; }
@@ -25,7 +26,8 @@ namespace XeniaProject
         public string FolderName { get; set; }
         public string ImagePath { get; set; }
         public Stability StabilityRating { get; set; }
-        public string ExecutableZipName { get; set; }
+        public string ZipName { get; set; }
+        public string ExecutableName { get; set; }
 
         public enum Stability
         {

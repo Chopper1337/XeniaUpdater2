@@ -1,0 +1,90 @@
+i> 00006C74 Build: canary_experimental@f4014a8fc on Apr 27 2022
+i> 00006C74 Storage root: C:\Users\User\Documents\Xenia
+i> 00006C74 Loaded config: C:\Users\User\Documents\Xenia\xenia-canary.config.toml
+i> 00006C74 Content root: C:\Users\User\Documents\Xenia\content
+i> 00006C74 Cache root: C:\Users\User\Documents\Xenia\cache
+i> 00006E00 winkey: "^A" binds key 0x41 to controller input DPAD_LEFT.
+i> 00006E00 winkey: "^D" binds key 0x44 to controller input DPAD_RIGHT.
+i> 00006E00 winkey: "^S" binds key 0x53 to controller input DPAD_DOWN.
+i> 00006E00 winkey: "^W" binds key 0x57 to controller input DPAD_UP.
+i> 00006E00 winkey: "_A" binds key 0x41 to controller input LEFT_THUMB_LEFT.
+i> 00006E00 winkey: "_D" binds key 0x44 to controller input LEFT_THUMB_RIGHT.
+i> 00006E00 winkey: "_S" binds key 0x53 to controller input LEFT_THUMB_DOWN.
+i> 00006E00 winkey: "_W" binds key 0x57 to controller input LEFT_THUMB_UP.
+i> 00006E00 winkey: "F" binds key 0x46 to controller input LEFT_THUMB_PRESSED.
+i> 00006E00 winkey: "0x26" binds key 0x26 to controller input RIGHT_THUMB_UP.
+i> 00006E00 winkey: "0x28" binds key 0x28 to controller input RIGHT_THUMB_DOWN.
+i> 00006E00 winkey: "0x27" binds key 0x27 to controller input RIGHT_THUMB_RIGHT.
+i> 00006E00 winkey: "0x25" binds key 0x25 to controller input RIGHT_THUMB_LEFT.
+i> 00006E00 winkey: "K" binds key 0x4B to controller input RIGHT_THUMB_PRESSED.
+i> 00006E00 winkey: "L" binds key 0x4C to controller input X.
+i> 00006E00 winkey: "0xDE" binds key 0xDE to controller input B.
+i> 00006E00 winkey: "0xBA" binds key 0xBA to controller input A.
+i> 00006E00 winkey: "P" binds key 0x50 to controller input Y.
+i> 00006E00 winkey: "Q" binds key 0x51 to controller input LEFT_TRIGGER.
+i> 00006E00 winkey: "I" binds key 0x49 to controller input LEFT_TRIGGER.
+i> 00006E00 winkey: "E" binds key 0x45 to controller input RIGHT_TRIGGER.
+i> 00006E00 winkey: "O" binds key 0x4F to controller input RIGHT_TRIGGER.
+i> 00006E00 winkey: "Z" binds key 0x5A to controller input BACK.
+i> 00006E00 winkey: "X" binds key 0x58 to controller input START.
+i> 00006E00 winkey: "1" binds key 0x31 to controller input LEFT_SHOULDER.
+i> 00006E00 winkey: "3" binds key 0x33 to controller input RIGHT_SHOULDER.
+w> 00006C74 SDL GameControllerDB: file 'gamecontrollerdb.txt' does not exist.
+i> 00006E00 PatchDB: Loaded patches for 0 titles
+i> 00006E00 DXGI adapter: NVIDIA GeForce RTX 3060 Laptop GPU (vendor 0x10DE, device 0x2560)
+i> 00006E00 Direct3D 12 device and OS features:
+* Max GPU virtual address bits per resource: 40
+* Non-zeroed heap creation: yes
+* Pixel-shader-specified stencil reference: no
+* Programmable sample positions: tier 2
+* Rasterizer-ordered views: yes
+* Resource binding: tier 3
+* Tiled resources: tier 3
+i> 00006E00 Added handle:F8000004 for class xe::kernel::XObject
+i> 00006E00 XThreadF8000004 (1) Stack: 70010000-70030000
+i> 00006E00 Added handle:F8000008 for class xe::kernel::XObject
+K> F8000004 XThread::Execute thid 1 (handle=F8000004, 'GPU Commands (F8000004)', native=00005E60, <host>)
+i> 00006E00 XThreadF8000008 (2) Stack: 70050000-70070000
+K> F8000008 XThread::Execute thid 2 (handle=F8000008, 'GPU VSync (F8000008)', native=00006228, <host>)
+i> 00006E00 Added handle:F800000C for class xe::kernel::XObject
+i> 00006E00 XThreadF800000C (3) Stack: 70090000-700B0000
+i> 00006E00 Added handle:F8000010 for class xe::kernel::XObject
+i> 00006E00 XThreadF8000010 (4) Stack: 700D0000-700F0000
+K> F800000C XThread::Execute thid 3 (handle=F800000C, 'XMA Decoder (F800000C)', native=0000744C, <host>)
+i> 00006E00 Added handle:F8000014 for class xe::kernel::XObject
+K> F8000010 XThread::Execute thid 4 (handle=F8000010, 'Audio Worker (F8000010)', native=00005234, <host>)
+i> 00006E00 Added handle:F8000018 for class xe::kernel::XObject
+i> 00006E00 Added handle:F800001C for class xe::kernel::XObject
+i> 00006C74        Time, 
+i> 00006C74     Average, 
+i> 00006C74         Max, 
+i> 00006C74         Min, 
+i> 00006C74    Call Avg, 
+i> 00006C74     Count, 
+i> 00006C74        Excl, 
+i> 00006C74    Avg Excl, 
+i> 00006C74    Max Excl, 
+i> 00006C74 apu
+i> 00006C74 cpu
+i> 00006C74 gpu
+i> 00006C74      0.00ms, 
+i> 00006C74      0.00ms, 
+i> 00006C74 -101445919571968.00ms, 
+i> 00006C74     -0.00ms, 
+i> 00006C74 -101445919571968.00ms, 
+i> 00006C74         0, 
+i> 00006C74      0.00ms, 
+i> 00006C74     -0.00ms, 
+i> 00006C74      0.00ms, 
+i> 00006C74 xe::gpu::GraphicsSystem::MarkVblank
+i> 00006C74      0.00ms, 
+i> 00006C74     13.80ms, 
+i> 00006C74     13.81ms, 
+i> 00006C74      0.10ms, 
+i> 00006C74     13.81ms, 
+i> 00006C74         0, 
+i> 00006C74 -673498116653056.00ms, 
+i> 00006C74      0.00ms, 
+i> 00006C74      0.00ms, 
+i> 00006C74 xe::gpu::CommandProcessor::Stall
+i> 00006C74 internal

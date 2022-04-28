@@ -164,6 +164,7 @@
       <LastGenOutput>Database.cs</LastGenOutput>
       <DependentUpon>Database.edmx</DependentUpon>
     </Content>
+    <Resource Include="pr.png" />
     <Resource Include="images\canary.png" />
     <Resource Include="images\master.png" />
     <Resource Include="images\pr.png" />
