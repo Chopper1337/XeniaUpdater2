@@ -1,32 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace XeniaProject
 {
     public partial class MainWindow : Window
     {
-        // Create instance of the database
+        // Create instance of the games database
         DatabaseContainer db = new DatabaseContainer();
 
         //Create List of XeniaBuilds to hold the Xenia 
         List<XeniaBuild> builds = new List<XeniaBuild>();
 
-        
-        // Initialize DB
+        // Int to hold the selected item in Xenia list
+        int selected;
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -49,23 +43,25 @@ namespace XeniaProject
             XeniaBuildsMainList.ItemsSource = builds.ToList();
 
             /* -------- Games -------- */
-            // Add games to database
-            // create query to list all the games and their data
-            // fill data grid with that information
+            // Set Games list to show all the games in the DB
+            ResetGamesDG();
 
         }
 
         /* -------- Xenia Builds -------- */
         private void XeniaBuildsMainList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int selected = XeniaBuildsMainList.SelectedIndex; // Selected item in list
+            selected = XeniaBuildsMainList.SelectedIndex; // Selected item in list
             XeniaBuildsMainImage.Source = new BitmapImage(new Uri(builds[selected].ImagePath, UriKind.Relative)); // Set image source to image path
             XeniaBuildsNameLabel.Content = builds[selected].Name; // Set displayed name to the builds name
             XeniaBuildsDescTxblk.Text = builds[selected].Description; // Update the description
 
-            string stability = builds[selected].StabilityRating.ToString();
+            string stability = builds[selected].StabilityRating.ToString(); // Convert the stability rating of the game to a string
 
-            switch (stability){
+            // Depending on the stability, the text is set to a different colour
+            // Stability can be only one of three possible values as it is an enum
+            switch (stability)
+            {
                 case "Stable":
                     XeniaBuildsStabilityTxblk.Foreground = Brushes.LimeGreen;
                     XeniaBuildsStabilityTxblk.Text = $"Stability rating: {stability}";
@@ -84,91 +80,93 @@ namespace XeniaProject
 
         }
 
+        // Clicking the Start button 
         private void StartBTNClick(object sender, RoutedEventArgs e)
         {
-            int selected = XeniaBuildsMainList.SelectedIndex;
-            if(selected > -1)
+            if (selected > -1) // If the user has selected an entry
             {
-                Helper helper = new Helper();
-                helper.StartProcess(builds[selected]);
+                Helper helper = new Helper(); // Create an instance of the helper class
+                helper.StartProcess(builds[selected]); // Use the start process method to start the build's executable
             }
         }
 
+        // Clicking stop button
         private void StopBTNClick(object sender, RoutedEventArgs e)
         {
-            int selected = XeniaBuildsMainList.SelectedIndex;
-            if(selected > -1)
+            if (selected > -1)
             {
-                try
-                {
-                    Process[] proc = Process.GetProcessesByName(builds[selected].ExecutableName);
-                    proc[0].Kill();
-                }
-                catch
-                {
-
-                }
+                Helper helper = new Helper();
+                helper.StopProcess(builds[selected]); // Use method in helper to kill the process 
             }
         }
 
+        // Update button clicked 
         private void UpdateBTNClick(object sender, RoutedEventArgs e)
         {
-            int selected = XeniaBuildsMainList.SelectedIndex;
-            if(selected > -1)
+            if (selected > -1)
+                UpdateXenia(builds[selected]); // Use method to update xenia
+        }
+
+        // Downloads the latest copy of a selected Xenia build
+        private void UpdateXenia(XeniaBuild build)
+        {
+            if (XeniaBuildsMainList.SelectedIndex > -1)
             {
-                UpdateXenia(builds[selected]);
+                Helper helper = new Helper();
+                if (helper.InternetAvailable()) //Checks if there is a working internet connection
+                {
+                    helper.CreateFolderStructure(build); // Create the folder which the build will be downloaded to
+                    DownloadFile(build); // Download the build
+                }
+                else
+                    MessageBox.Show("Could not connected to server.\nPlease check you internet connection.", "Error");
             }
         }
 
-        private void UpdateXenia(XeniaBuild build)
-        {
-            Helper helper = new Helper();
-            helper.CreateFolderStructure(build);
-            DownloadFile(build);
-        }
-
-        //Downloads a file from a URL to a path with the file name you specify
+        //Downloads a Xenia build
         public void DownloadFile(XeniaBuild build)
         {
             Helper helper = new Helper();
-            ToggleButtons(false);
+            ToggleButtons(false); // Disables buttons
+
             using (WebClient wc = new WebClient())
             {
                 //Download from URL to location
                 wc.DownloadFileAsync(new Uri(build.URL), $"{build.FolderName}/{build.ZipName}.zip");
 
-                //For each change in progrress, output progress to the wc_DownloadProgressChanged method
+                //For each change in progress, output progress to the wc_DownloadProgressChanged method
                 wc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(wc_DownloadProgressChanged);
 
                 // For each update in the downloads progress, do this
                 void wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
                 {
                     DownloadProgressBar.Value = e.ProgressPercentage;
-                    //PercentageLBL.Text = $"{progressBar1.Value.ToString()}%";
 
                     if (DownloadProgressBar.Value == 100)
                     {
-                        wc.Dispose();
-                        ToggleButtons(true);
-                        Helper h = new Helper();
-                        h.ExtractBuild(build);
+                        wc.Dispose(); // Dispose of the web client
+                        ToggleButtons(true); // Enable buttons
+                        helper.ExtractBuild(build); // Go to the next step, extracting the downloaded build
                     }
                 }
-                wc.Dispose();
 
+                // If the web client could not download the zip, this code executes
+                wc.Dispose(); // Dispose of the web client
             }
         }
+        //Disables all the buttons such that the user cannot just spam click them during the update process
         public void ToggleButtons(bool status)
         {
             StartBTN.IsEnabled = status;
             StopBTN.IsEnabled = status;
             UpdateBTN.IsEnabled = status;
+            DeleteBTN.IsEnabled = status;
         }
 
+        // Call the Uninstall build function for a selected build
         private void DeleteBTNClick(object sender, RoutedEventArgs e)
         {
-            int selected = XeniaBuildsMainList.SelectedIndex;
-            if(selected > -1)
+            if (selected > -1)
             {
                 Helper helper = new Helper();
                 helper.UninstallBuild(builds[selected]);
@@ -176,5 +174,44 @@ namespace XeniaProject
         }
 
         /* -------- Games -------- */
+
+        //Each time a new character is entered into the search box, do this
+        private void GamesSearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchQuery = GamesSearchBox.Text;
+            // If the string entered is not blank
+            if (searchQuery.Length > 0)
+            {
+                // Query the database to search for the game by title
+                var q = from a in db.Games
+                        where a.Title.Contains(searchQuery)
+                        select new
+                        {
+                            Title = a.Title,
+                            Year = a.Year,
+                            AgeRating = a.AgeRating,
+                            Compatability = a.Compatability,
+                            RunsBestOn = a.XeniaBuild
+                        };
+                GamesDG.ItemsSource = q.ToList();
+            }
+            else // Else, if text box is empty so reset the list box
+                ResetGamesDG();
+        }
+
+        //Returns the Games list to its default state containing all games in the DB
+        private void ResetGamesDG()
+        {
+            var q = from a in db.Games
+                    select new
+                    {
+                        Title = a.Title,
+                        Year = a.Year,
+                        AgeRating = a.AgeRating,
+                        Compatability = a.Compatability,
+                        RunsBestOn = a.XeniaBuild
+                    };
+            GamesDG.ItemsSource = q.ToList();
+        }
     }
 }

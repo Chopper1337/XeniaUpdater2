@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace XeniaProject
+﻿namespace XeniaProject
 {
     public class XeniaBuild
     {
-        public XeniaBuild(string Name, string URL, string Description, string FolderName, string ImagePath, Stability StabilityRating, string ExecutableName, string ZipName )
+        public XeniaBuild(string Name, string URL, string Description, string FolderName, string ImagePath, Stability StabilityRating, string ExecutableName, string ZipName)
         {
             this.Name = Name;
             this.URL = URL;
