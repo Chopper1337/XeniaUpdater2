@@ -36,11 +36,12 @@
                     <!-- First column -->
                     <ListBox Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" FontSize="16" Name="XeniaBuildsMainList" Margin="10,10,10,48" SelectionChanged="XeniaBuildsMainList_SelectionChanged"/>
                     <ProgressBar x:Name="DownloadProgressBar" Grid.Column="0" Grid.Row="3" Margin="0 70 0 0" Height="25" Width="375"/>
+                    <TextBlock Grid.Column="0" Grid.Row="3" Text="Download Progress" HorizontalAlignment="Center" Margin="10,88,10,18" Width="375" Height="35" Foreground="#FF320B86" TextAlignment="Center"/>
 
                     <!-- Second column -->
                     <Image x:Name="XeniaBuildsMainImage" Grid.Row="0" Grid.RowSpan="2" Height="240" Margin="0,0,0,0" Grid.Column="1"/>
                     <Label x:Name="XeniaBuildsNameLabel" Grid.Column="1" FontSize="16" Grid.Row="2" Grid.RowSpan="1" HorizontalAlignment="Center" Width="400" HorizontalContentAlignment="Center"/>
-                    <TextBlock x:Name="XeniaBuildsDescTxblk" HorizontalAlignment="Center" Width="380"  Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Margin="0 35 0 0" TextWrapping="WrapWithOverflow"/>
+                    <TextBlock x:Name="XeniaBuildsDescTxblk" HorizontalAlignment="Center" Width="380"  Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Margin="0 35 0 0" TextWrapping="WrapWithOverflow" TextAlignment="Center"/>
                     <TextBlock x:Name="XeniaBuildsStabilityTxblk" HorizontalAlignment="Center" Width="405" Margin="0,0,0,0" Grid.Row="3" Grid.Column="1" TextAlignment="Center"/>
 
                     <!-- Third column -->
