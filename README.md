@@ -8,3 +8,4 @@ This is a re-write of https://github.com/Chopper1337/XeniaUpdater with better co
 * Make UI a bit smaller
 * Respect users theme
 * Remove (or improve) stability rating
+* Use real Xenia logos
