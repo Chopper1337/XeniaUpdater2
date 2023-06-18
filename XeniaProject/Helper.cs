@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
@@ -12,7 +14,7 @@ namespace XeniaProject
     internal class Helper
     {
         // The location the XeniaUpdater application is stored
-        string currentFullPath = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName.Replace(System.Diagnostics.Process.GetCurrentProcess().MainModule.ModuleName, "");
+        string _currentFullPath = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName.Replace(System.Diagnostics.Process.GetCurrentProcess().MainModule.ModuleName, "");
 
         //Creates the expected folder structure for a build of Xenia which backs up the zip of the previously downloaded build
         public void CreateFolderStructure(XeniaBuild build)
@@ -38,6 +40,20 @@ namespace XeniaProject
             }
             catch
             {
+                // ignored
+            }
+        }
+
+        // Starts a build of Xenia
+        public void OpenLocation(XeniaBuild build)
+        {
+            try
+            {
+                Process.Start($"{build.FolderName}");
+            }
+            catch
+            {
+                MessageBox.Show($"\"{build.ExecutableName}.exe\" could not be found.", "Error");
             }
         }
 
@@ -64,7 +80,19 @@ namespace XeniaProject
             }
             catch
             {
+                // ignored
+            }
+        }
 
+        public void ExtractPatches()
+        {
+            try
+            { 
+                ZipFile.ExtractToDirectory($"XeniaCanary/patches.zip", "XeniaCanary");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
         }
 
@@ -73,7 +101,7 @@ namespace XeniaProject
             try
             {
                 using (var client = new WebClient())
-                using (var stream = client.OpenRead("http://appveyor.com"))
+                using (var stream = client.OpenRead("http://github.com"))
                     return true;
             }
             catch
