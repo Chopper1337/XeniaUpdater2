@@ -2,6 +2,8 @@
 
 This is a re-write of https://github.com/Chopper1337/XeniaUpdater with (mostly) better code.
 
+![Screenshot](media/Screenshot.png)
+
 # TODO
 
 * Make UI a bit smaller
