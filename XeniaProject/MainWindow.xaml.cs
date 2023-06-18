@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -15,7 +16,7 @@ namespace XeniaProject
         List<XeniaBuild> _builds = new List<XeniaBuild>();
 
         // Int to hold the selected item in Xenia list
-        int _selected = 0;
+        private int _selected = 0;
 
 
         public MainWindow()
@@ -43,6 +44,7 @@ namespace XeniaProject
             // XeniaBuildsMainList shows the contents of the created list
             XeniaBuildsMainList.ItemsSource = _builds.ToList();
             XeniaBuildsMainList.SelectedIndex = 0; // Set the selected index to 0
+            ReactiveButtonText();
 
         }
 
@@ -50,9 +52,15 @@ namespace XeniaProject
         private void XeniaBuildsMainList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _selected = XeniaBuildsMainList.SelectedIndex; // Selected item in list
+            ReactiveButtonText();
             XeniaBuildsMainImage.Source = new BitmapImage(new Uri(_builds[_selected].ImagePath, UriKind.Relative)); // Set image source to image path
             XeniaBuildsNameLabel.Content = _builds[_selected].Name; // Set displayed name to the builds name
             XeniaBuildsDescTxtblk.Text = _builds[_selected].Description; // Update the description
+        }
+
+        private void ReactiveButtonText()
+        {
+            UpdateBtn.Content = !File.Exists($"{_builds[_selected].FolderName}/{_builds[_selected].ExecutableName}.exe") ? "Download" : "Update";
         }
 
         // Clicking the Start button 
@@ -105,6 +113,7 @@ namespace XeniaProject
         {
             if (_selected <= -1) return;
                 UpdateXenia(_builds[_selected]); // Use method to update xenia
+            ReactiveButtonText();
         }
 
         // Downloads the latest copy of a selected Xenia build
@@ -144,6 +153,7 @@ namespace XeniaProject
                     wc.Dispose(); // Dispose of the web client
                     ToggleButtons(true); // Enable buttons
                     helper.ExtractBuild(build); // Go to the next step, extracting the downloaded build
+                    ReactiveButtonText();
                 }
 
                 // If the web client could not download the zip, this code executes
@@ -169,6 +179,7 @@ namespace XeniaProject
             if (_selected <= -1) return;
             Helper helper = new Helper();
             helper.UninstallBuild(_builds[_selected]);
+            ReactiveButtonText();
         }
 
         private void ExplorerBtnClick(object sender, RoutedEventArgs e)
