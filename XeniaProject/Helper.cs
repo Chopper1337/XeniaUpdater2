@@ -1,8 +1,9 @@
 ﻿using System;
-using System.ComponentModel;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Net;
 using System.Windows;
 
@@ -21,10 +22,35 @@ namespace XeniaProject
         {
             Directory.CreateDirectory(build.FolderName); // Xenia build extracts here
         }
-        public void UninstallBuild(XeniaBuild build)
+        public void UninstallBuild(XeniaBuild build, bool skipMsg = false)
         {
-            if (Directory.Exists(build.FolderName))
-                Directory.Delete(build.FolderName, true); // Deletes the folder in which the build is contained
+            string[] filesToDelete = { $"{build.FolderName}\\{build.ExecutableName}.exe", $"{build.FolderName}\\LICENSE", $"{build.FolderName}\\xenia.pdb" };
+            List<string> existingFiles = filesToDelete.Where(File.Exists).ToList();
+
+            if (existingFiles.Count == 0) return;
+
+            var validFiles = string.Join("\n", existingFiles);
+
+            if (!skipMsg && MessageBox.Show($"Are you sure you want to delete\n{validFiles}", "Warning", MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+                return;
+
+            if (!Directory.Exists(build.FolderName)) return;
+
+            // Kill Xenia if it's running
+            try
+            {
+                StopProcess(build);
+                foreach (var file in existingFiles)
+                {
+                    if (File.Exists(file))
+                        File.Delete(file);
+                }
+            }
+            catch
+            {
+                UninstallBuild(build, true);
+            }
+
         }
 
         // Extracts build of Xenia to expected folder
@@ -75,7 +101,7 @@ namespace XeniaProject
         {
             try
             {
-                Process[] proc = Process.GetProcessesByName(build.ExecutableName);
+                var proc = Process.GetProcessesByName(build.ExecutableName);
                 proc[0].Kill();
             }
             catch
@@ -87,7 +113,7 @@ namespace XeniaProject
         public void ExtractPatches()
         {
             try
-            { 
+            {
                 ZipFile.ExtractToDirectory($"XeniaCanary/patches.zip", "XeniaCanary");
             }
             catch (Exception e)

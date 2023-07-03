@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.NetworkInformation;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -112,7 +111,7 @@ namespace XeniaProject
         private void UpdateBTNClick(object sender, RoutedEventArgs e)
         {
             if (_selected <= -1) return;
-                UpdateXenia(_builds[_selected]); // Use method to update xenia
+            UpdateXenia(_builds[_selected]); // Use method to update xenia
             ReactiveButtonText();
         }
 
@@ -177,6 +176,7 @@ namespace XeniaProject
         private void DeleteBtnClick(object sender, RoutedEventArgs e)
         {
             if (_selected <= -1) return;
+
             Helper helper = new Helper();
             helper.UninstallBuild(_builds[_selected]);
             ReactiveButtonText();
