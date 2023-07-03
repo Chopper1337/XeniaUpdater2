@@ -44,7 +44,9 @@ namespace XeniaProject
 
             // XeniaBuildsMainList shows the contents of the created list
             XeniaBuildsMainList.ItemsSource = _builds.ToList();
-            XeniaBuildsMainList.SelectedIndex = 0; // Set the selected index to 0
+
+            XeniaBuildsMainList.SelectedIndex = XeniaProject.Properties.Settings.Default.selectedIndex; // Set the selected index to previous selected item
+
             ReactiveButtonText();
 
         }
@@ -57,6 +59,8 @@ namespace XeniaProject
             XeniaBuildsMainImage.Source = new BitmapImage(new Uri(_builds[_selected].ImagePath, UriKind.Relative)); // Set image source to image path
             XeniaBuildsNameLabel.Content = _builds[_selected].Name; // Set displayed name to the builds name
             XeniaBuildsDescTxtblk.Text = _builds[_selected].Description; // Update the description
+            XeniaProject.Properties.Settings.Default.selectedIndex = _selected; // Save the selected index
+            XeniaProject.Properties.Settings.Default.Save();
         }
 
         private void ReactiveButtonText()
