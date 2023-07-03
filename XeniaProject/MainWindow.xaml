@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:XeniaProject"
         mc:Ignorable="d"
-        Title="Xenia Updater" Height="500" Width="1000" Loaded="Window_Loaded" MinWidth="800" MinHeight="500" MaxWidth="800" MaxHeight="600" ResizeMode="NoResize"
+        Title="Xenia Updater" Height="500" Width="800" Loaded="Window_Loaded" MinWidth="800" MinHeight="500" MaxWidth="800" MaxHeight="600" ResizeMode="NoResize"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
