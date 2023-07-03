@@ -76,7 +76,8 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="Xenia Updater" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" Margin="10" />
                     <TextBlock Text="Xenia Updater is in no way affiliated with Xenia or the Xenia team. Xenia Updater is licensed under the GPLv2 license." Grid.Row="1" VerticalAlignment="Top" Margin="20" HorizontalAlignment="Center" FontSize="16" TextWrapping="WrapWithOverflow" TextAlignment="Center" />
-                    <TextBlock Text="Xenia Updater version 1.0" Grid.Row="2" VerticalAlignment="Bottom" Margin="10" HorizontalAlignment="Center" FontSize="16" />
+                    <TextBlock Text="Xenia Updater version 1.0" Grid.Row="2" VerticalAlignment="Bottom" Margin="10" HorizontalAlignment="Right" FontSize="16" Foreground="Gray" />
+                    <TextBlock Text="GitHub" Grid.Row="2" VerticalAlignment="Bottom" Margin="10" HorizontalAlignment="Left" FontSize="16" Foreground="Gray" MouseLeftButtonUp="UIElement_OnMouseLeftButtonUp"/>
                 </Grid>
             </TabItem>
         </TabControl>

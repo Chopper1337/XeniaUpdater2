@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
 namespace XeniaProject
@@ -187,6 +189,11 @@ namespace XeniaProject
             if (_selected <= -1) return;
             Helper helper = new Helper();
             helper.OpenLocation(_builds[_selected]);
+        }
+
+        private void UIElement_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Process.Start("https://github.com/Chopper1337/XeniaUpdater2/");
         }
     }
 }
